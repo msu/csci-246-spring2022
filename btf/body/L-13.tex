@@ -1,3 +1,90 @@
-\section*{Lecture 13: Contrapositive and Proof by Contradiction (\textsection 4.7--8)}
+\section*{Lecture 13: Indirect Proofs (\textsection 4.7--8)}
 
-\todo{}
+We have already seen many logic statements in this class.  And, we have started
+to prove that some of these statements are true (or false).  Let $P$ and $Q$ be
+logical statements such that
+$$ P \implies Q.$$
+Generally, to prove this using a \emph{direct proof} we start with $P$ and make
+one deduction after another to arrive at a sequence of statements (that are true
+assuming $P$ is true) until we arrive at $Q$.
+
+One \emph{indirect proof} technique is a \emph{proof by contradiction}, where
+we:
+\begin{enumerate}
+    \item Assume, by contradiction, that $P$ and $\sim Q$ are true.
+    \item Make one deduction after another until a contradiction is reached.
+    \item Conclude that $P \implies Q$.
+\end{enumerate}
+
+\begin{theorem}[Greatest Integer]
+    There is no greatest integer.
+\end{theorem}
+\begin{proof}
+    Suppose, by contradiction, that
+    \proofspace
+    Therefore, there is no greatest integer, as was to be shown.
+\end{proof}
+
+\begin{theorem}[Rational + Irrational]
+    The sum of a rational number and an irrational number is irrational.
+\end{theorem}
+\begin{proof}
+    We rewrite the theorem statement as:
+
+    \proofspace
+\end{proof}
+
+\pagebreak
+A second indirect proof technique is an \emph{argument by contrapositive} (or,
+reduction to absurdity).
+Here, instead of proving $P \implies Q$, we~prove:
+$$ \neg Q \implies \neg P. $$
+In other words ``If $Q$ is false, then $P$ is false.''
+Let's try an example.  But, first, a lemma:
+
+\begin{lemma}[Even or Odd]
+    Every integer $n$ is either even or odd, but not both.
+\end{lemma}
+You should be able to prove this lemma, but we will not do that here.  We can
+just assume that it is true.
+
+\begin{theorem}[Even Squares]\label{thm:evensquare}
+    For every integer $n$, if $n^2$ is even, then $n$ is even.
+\end{theorem}
+\begin{proof}
+    Let $n\in \Z$.  We wish to show that: if $n^2$ is even, then $n$ is even.
+    Equivalently, we can show the contrapositive:
+
+    \proofspace
+\end{proof}
+
+We conclude with another theorem with a proof by contradiction.  Recall that a
+number $q$ is called \emph{rational} if there exists integers $a,b$ such tat
+$q=\frac{a}{b}$.  By the Fundamental Theorem of Arithmetic, we can write $a$ and
+$b$ as a product of primes, and cancel any common prime numbers.  As a result,
+we obtain integers $n$ and $m$ with no common factors such that $q=\frac{m}{n}$.
+We commonly refer to this process as writing $q$ as a
+reduced fraction.
+
+\begin{theorem}[Irrationality of $\sqrt{2}$]
+    $\sqrt{2}$ is irrational.
+\end{theorem}
+
+\begin{proof}
+    Suppose, by contradiction, that $\sqrt{2}$ is rational.  Then, there exists
+    two integers $m,n$ with no common factors such that
+    $$ \sqrt{2}=\frac{m}{n}.$$
+
+    By squaring both sides, we obtain $2=\frac{m^2}{n^2}$.
+    By multiplying both sides by $n^2$, we obtain $2n^2=m^2$.
+    Hence, by definition of even, $m^2$ is even.
+    By \thmref{evensquare}, we know that $m$ is also even.
+
+    By definition of even, there exists an integer $k$ such that $m=2k$.
+    Substituting $m=2k$ into the equation~$2n^2=m^2$, we obtain
+    $2n^2=(2k)^2=4k^2$. Dividing both sides by $2$, we obtain~$n^2=2k^2$, which
+    means that $n^2$ is even.  Again using \thmref{evensquare}, we know that $n$
+    is even.  However, this is a contradiction, as both~$n$ and $m$ are even
+    (meaning that they both have a factor of $2$),
+    but we began by assuming that $m,n$ had no common factors.
+\end{proof}

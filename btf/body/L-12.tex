@@ -1,3 +1,60 @@
 \section*{Lecture 12: Quotient-Remainder Theorem (Section 4.5)}
 
-\todo{}
+\begin{theorem}[Quotient-Remainder Theorem (QRT)]
+    Let $n \in \Z$ and $d \in \Z_{+}$.  Then, there exists unique integers $q$
+    and $r$ such that
+    $$ n = dq + r, $$
+    where $0 \leq r < d$.
+\end{theorem}
+
+As computer scientists, we are familiar with this theorem.  In fact, we know
+these as integer division (``div'') and modular arithmetic (``mod''):
+$$q = n \text{ div } d \text{, and } r= n\mod d. $$
+Different programming languages this slightly differently syntax for mod and
+div (e.g., integer
+division is~$n//d$
+in python, but~$n/d$ in C++).
+
+\input{body/prac-directions}
+
+\begin{enumerate}
+    \item Find $q,r$ from the QRT for $n=27$ and $d=5$.
+        \practice
+    \item Find $q,r$ from the QRT for $n=25$ and $d=5$.
+        \practice
+    \item Find $q,r$ from the QRT for $n=21$ and $d=5$.
+        \practice
+    \pagebreak
+    \item Find $q,r$ from the QRT for $n=0$ and $d=5$.
+        \practice
+    \item Find $q,r$ from the QRT for $n=-8$ and $d=5$.
+        \practice
+    \item Find $r$ from the QRT if $n$, $d$, and $q$ are known.
+        \practice
+    \item Today is Wednesday, 16 February 2022.  What day of the week is
+        Wednesday, 18 February 2023? (Note: 2022 is not a leap year).
+        \practice
+\end{enumerate}
+
+Note that $d=2$ is a special case.  In fact, $n$ is even iff $n \mod
+2 = 0$.  And, $n$ is odd iff $n \mod 2 = 1$.  The \emph{parity} of an integer
+refers to whether the integer is even or odd.
+
+\begin{theorem}[Divisibility is Transitive]
+    A necessary and sufficient condition for an integer $n$ to be divisible by a
+    positive integer $d$ is that $n \mod d = 0$.
+\end{theorem}
+\begin{proof}
+    Let $n \in \Z$ and let $d \in \Z_{+}$.
+
+    First, we will prove the forward direction: \emph{If $n$ is divisible by
+    $d$, then $n \mod d = 0$.}
+    \proofspace
+
+    Next, we will prove the backward direction: \emph{If $n \mod d = 0$,
+    then $n$ is divisible by $d$.}
+    \proofspace
+
+    Thus, we have shown that $n \mod d = 0$ is a necessary and sufficient
+    condition for $n$ to be divisible by $d$.
+\end{proof}

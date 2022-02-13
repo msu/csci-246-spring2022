@@ -1,0 +1,89 @@
+\section*{Lecture 11: Divisibility and Unique Factorization (Section 4.4)}
+
+\begin{definition}[Divides]
+    Let $n,d$ be integers.  We define: $n$ is \emph{divisible by} $d$
+    if and only if
+    $d \neq 0$ and there exists an $k \in \Z$ such
+    that $n=kd$.  Moreover, this can be said in several different ways, that all
+    mean the same thing:
+    \begin{itemize}
+        \item $n$ is \emph{divisible by} $d$
+        \item $n$ is a \emph{multiple} of $d$
+        \item $d$ is a \emph{factor} of $n$
+        \item $d$ is a \emph{divisor} of $n$
+        \item $d$ \emph{divides} $n$ (written $d \mid n$).
+    \end{itemize}
+\end{definition}
+
+\input{body/prac-directions}
+
+\begin{enumerate}
+    \item Write the definition of divides using an existential quantifier and
+        the $\iff$ symbol.
+       \practice
+    \item What is the negation of the previous statement?
+       \practice
+    \item Is $5$ divisible by $3$?
+       \practice
+    \pagebreak
+    \item Is $20$ divisible by $3$?
+       \practice
+    \item Is $0$ divisible by $3$?
+       \practice
+    \item Let $a,b \in \Z$. Is $3a+3b$ divisible by $3$?
+       \practice
+    \item Let $a \in \Z$. Is $15a$ divisible by $3$?
+       \practice
+\end{enumerate}
+
+
+\pagebreak
+
+\begin{theorem}[Divisibility is Transitive]
+    For all integers $a,b,c$, if $a \mid c$ and $b \mid c$, then $a \mid c$.
+\end{theorem}
+\begin{proof}
+    Let $a,b,c \in \Z$.
+    \proofspace
+    Thus, $a \mid c$.
+\end{proof}
+
+We have already seen one definition of prime numbers: An integer $n$ is prime if
+and only if $n>1$ and the only positive integer factors of $n$ are $1$ and
+itself.  We can use the notion
+of divides to provide an alternative definition for prime.
+
+\begin{definition}[Prime (version 2)]
+    Let $n \in Z$.  We say that $n$ is \emph{prime} iff its only positive
+    integer divisors are $1$ and itself.
+\end{definition}
+
+\input{body/prac-directions}
+
+\begin{enumerate}
+    \item True or False? For all integers $a$ and $b$, if $a \mid b$ and $b \mid
+        a$, then $a=b$.
+        \practice
+    \item What are the factors of $15$?
+        \practice
+    \item What are the prime factors of $15$?
+        \practice
+    \item What are the factors of $45$?
+        \practice
+    \item What are the prime factors of $45$?
+        \practice
+\end{enumerate}
+
+\begin{theorem}[Fundamental Theorem of Arithmetic (Unique Factorization of Integers)]
+    Let $n>1$ be an integer.  Then, there exists a positive integer $k$ and
+    distinct prime numbers $p_1, p_2, \ldots, p_k$ and integers $e_1, e_2,
+    \ldots, e_k$ such that:
+    $$ n=p_1^{e_1}p_2^{e_2} \cdot \ldots \cdot p_k^{e_k},$$
+    and all other expressions for $n$ as a product of prime numbers is
+    equivalent to this expression by reordering the prime numbers.  If $p_1 <
+    p_2 < \ldots < p_k$, we say $n$ is written \emph{in standard factored form}.
+\end{theorem}
+
+In other words, every integer greater than $1$ is either prime or can be written as the
+product of prime numbers in a way that is unique (up to the order in which
+the primes are written).

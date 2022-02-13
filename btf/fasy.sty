@@ -59,6 +59,19 @@
     \header
     \paragraph{#1}
 }
+\newcommand{\practice}{\newline {\color{blue}Try it!} \vspace{1.5in}}
+\newcommand{\proofspace}{{\color{blue}(Prove it!)}
+    ~\newline
+    ~\newline
+    ~\newline
+    ~\newline
+    ~\newline
+    ~\newline
+    ~\newline
+    ~\newline
+    ~\newline
+    ~\newline
+}
 
 % ... Command to make the header box.
 \newcommand{\header}{
@@ -107,6 +120,11 @@
 \usepackage{amsthm}
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+
+% ... spacing
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt}
 
 % ... for self-notes:
 \newcommand{\todo}[1]{{\color{red}[[\textbf{XXX TODO: }#1]]}}

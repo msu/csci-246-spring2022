@@ -8,11 +8,12 @@ Generally, to prove this using a \emph{direct proof} we start with $P$ and make
 one deduction after another to arrive at a sequence of statements (that are true
 assuming $P$ is true) until we arrive at $Q$.
 
-One \emph{indirect proof} technique is a \emph{proof by contradiction}, where
+One \emph{indirect proof} technique is a \emph{proof by contradiction}  (or,
+reduction to absurdity), where
 we:
 \begin{enumerate}
-    \item Assume, by contradiction, that $P$ and $\sim Q$ are true.
-    \item Make one deduction after another until a contradiction is reached.
+    \item Assume, by contradiction, that $P$ and $\neg Q$ are true.
+    \item Make one deduction after another until a contradiction (an absurdity) is reached.
     \item Conclude that $P \implies Q$.
 \end{enumerate}
 
@@ -35,8 +36,7 @@ we:
 \end{proof}
 
 \pagebreak
-A second indirect proof technique is an \emph{argument by contrapositive} (or,
-reduction to absurdity).
+A second indirect proof technique is an \emph{argument by contrapositive}.
 Here, instead of proving $P \implies Q$, we~prove:
 $$ \neg Q \implies \neg P. $$
 In other words ``If $Q$ is false, then $P$ is false.''
@@ -60,11 +60,10 @@ just assume that it is true.
 
 We conclude with another theorem with a proof by contradiction.  Recall that a
 number $q$ is called \emph{rational} if there exists integers $a,b$ such tat
-$q=\frac{a}{b}$.  By the Fundamental Theorem of Arithmetic, we can write $a$ and
-$b$ as a product of primes, and cancel any common prime numbers.  As a result,
-we obtain integers $n$ and $m$ with no common factors such that $q=\frac{m}{n}$.
-We commonly refer to this process as writing $q$ as a
-reduced fraction.
+$q=\frac{a}{b}$.  By the Fundamental Theorem of Arithmetic, we can write $a$
+and~$b$ as a product of primes, and cancel any common prime numbers.  As a
+result, we obtain integers $n$ and~$m$ with no common factors such that
+$q=\frac{m}{n}$.  We commonly refer to this process as writing $q$ as a reduced~fraction.
 
 \begin{theorem}[Irrationality of $\sqrt{2}$]
     $\sqrt{2}$ is irrational.

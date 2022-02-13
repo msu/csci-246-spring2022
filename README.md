@@ -2,9 +2,9 @@
 
 This repository is created for part of the Spring 2022 Discrete Mathematics
 (CSCI 246) course that is team taught by five faculty.  This repository contains
-materials for the section taught by Prof. Brittany Terese Fasy.
+materials for the module taught by Prof. Brittany Terese Fasy.
 
-Using git (and LaTex) is not required for this section of the class, but might
+Using git (and LaTex) is not required for this module of the class, but might
 make completing the homework easier.  Compiled PDFs will be posted to the Google
 Drive folder.
 

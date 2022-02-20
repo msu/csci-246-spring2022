@@ -21,6 +21,7 @@ on your own computer is highly personal, so I won't tell you how to do that.
 But, I will link to a couple helpful websites:
 
 * [The Latex Project](https://faculty.math.illinois.edu/~hildebr/tex/latex-start.html)
+* [MSU CompTaG](https://github.com/compTAG/student-resources/tree/master/latex)
 * [Getting Started with LaTex](https://faculty.math.illinois.edu/~hildebr/tex/latex-start.html)
 
 ### If you want to work on a web-based copiler

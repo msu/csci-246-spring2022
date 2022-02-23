@@ -1,3 +1,111 @@
 \section*{Lecture 14: Sequences (\textsection 5.1)}
 
-\todo{add lecture notes}
+\paragraph{First, a note on modular arithmetic:}
+
+Last week, (among other topics), we discussed ``mod'' and ``div'' operators.
+Perhaps the case for ``div'' is clear (divide and round down for positive
+numbers).  But, where ``mod'' is used might not be as clear.  Let $n \in \Z$.
+\begin{enumerate}
+    \item $n \mod 2$ lets us know whether $n$ is a multiple of $2$ or not.
+    \item If we have a repeated pattern that lasts $k$ units long and then
+        repeats, $n \mod k$ tells us which type of unit the $n$-th unit is.
+        For example, if today is Monday, what day of the week is it in $100$
+        days? If the current time is 14:05 and I start a program that I estimate
+        will take $52$ hours to complete, at what time will it complete on the
+        day it does complete?
+    \item If we want to write a natural number in binary, then we find the first digit
+        by finding the largest integer $i$ for which $n_i:=n\text{ div } 2^i >0$.
+        For example, consider $n=7$.\\
+        $n\text{ div } 2^0=$\\
+        $n\text{ div } 2^1=$\\
+        $n\text{ div } 2^2=$\\
+        $n\text{ div } 2^3=$\\
+        Now that we have that, to compute the second digit, we take:
+        $n_{i-1}:=(n-n_i2^i) \text{ div } 2^{i-1},$\\
+        and, in general, we have (using \emph{summation notation}):
+        $$
+            n_j := \left(n- \sum_{k=j+1}^{i} n_k2^k \right) \text{ div } 2^{j}.
+        $$
+        \practice
+        (See Page $272$ of the textbook for a different algorithm that uses repeated
+        division by $2$).
+    \item Writing numbers base $k$ for some other $k \in \Z_{+}$ works very
+        similarly!
+\end{enumerate}
+
+\begin{definition}[Sequence]
+    A \emph{sequence} is an ordered list.  Most often, we think of a sequence as
+    a function from the natural numbers $\N:=\{ 0,1,2, \ldots\}$ (or a subset of
+    them) to some set of interest.
+
+    If $N \subseteq \N$ and $X$ is the set of interest, a sequence is a
+    function $f \colon N \to X$.  In short, we often write $f_i:=f(i)$.
+\end{definition}
+
+Sometimes the sequence is explicitly given (e.g., $f_i=2^i$ are the ordered
+powers of two).  Other times, we have a pattern (such as $1,-1/2, 1/3, -1/5,
+\ldots$) and we need to find the function that defines it ($g_i=\frac{(-1)^{i+1}}{i}$, for
+$i\in \Z_+$).  In the latter, a great technique to try is guess-and-check.
+
+\pagebreak
+\input{body/prac-directions}
+
+\begin{enumerate}
+    \item Consider the sequence over $\N$ by: $a_k :=\frac{k}{k+1}$.
+        What are the first five terms?
+        \practice
+    \item Let $n \in \N$.  Consider the sequence $b \colon \N \to \N$ defined
+        by $b(k):= n \text {div } 2^k$.  What is the range of $b$?
+        \practice
+    \item What is the following sequence: $c_k := (-1)^{k}$?
+        \practice
+    \item What is the following sequence: $d_k := (-i)^{k}$?
+        \practice
+\end{enumerate}
+
+In addition to summations of numbers in a sequence (as we saw in the computation
+of numbers base two),
+we might want to take products of numbers.
+
+\begin{definition}[Product Notation]
+    Let $a_1, a_2, \ldots, a_n$ be a sequence of real numbers.
+    The product of these $n$ numbers is denoted as follows:
+    $$
+        \prod_{i=1}^n:= a_1\cdot a_2 \cdot \ldots \cdot a_n.
+    $$
+    Note that this can also be defined recursively for $n > 1$ as follows:
+    $$
+        \prod_{i=1}^n := a_n \cdot \prod_{i=1}^{n-1}
+    $$
+\end{definition}
+
+For example, the factorial ($n!$) can be written in product notation:
+$$
+    n! := \prod_{i=1}^n i = 1 \cdot 2 \cdot \ldots \cdot n.
+$$
+(And, for convenience, we define $0!:=1$).
+
+Summations and products behave nicely, as we see in the following theorem:
+
+\begin{theorem}[Properties of Summations and Products]
+    Let $m \leq n$ be natural numbers and
+    let $\{a_i\}_{i=m}^n$ and $\{b_j\}_{j=m}^n$ be two sequences of real
+    numbers, and let $c \in \R$.  Then:
+    $$\sum_{k=m}^n a_k + c \cdot \sum_{k=m}^n b_k = \sum_{k=m}^n (a_k+ c\cdot b_k)$$
+    $$\left( \prod_{k=m}^n a_k \right) \cdot \left(  \prod_{k=m}^n b_k \right)
+        = \prod_{k=m}^n \left(a_k \cdot b_k\right)$$
+\end{theorem}
+
+Where do we see these in computer science? First, a definition:
+
+\begin{definition}[Well-Ordered Set]
+    A \emph{well-ordered set} is a set such that every subset has a smallest
+    element. $\N$ is a well-ordered set, and the one we use often in CS!
+\end{definition}
+
+\paragraph{Application: Proofs of Termination}
+In programming, we see sequences often.  Consider a variable that is changed in
+a for loop.  Let $v_0$ be the initial value of that variable, and let $v_i$
+denote the value of that variable after the $i$th time through the loop.
+If the variable is valued in some well-ordered set (say, $\N$) and if
+$v_i$ is always decreasing, then we know that the loop must terminate!

@@ -96,17 +96,41 @@ This homework is worth $7$ points.
 \collab{\todo{}}
 \nextprob{Proof by Induction (2 points)}
 
-\todo{write question}
+Induction is an important concept going forward in your computer science
+curriculum.  Please try (or re-try) questions in the lectures and the textbook,
+as two induction problems is not enough to master the concept.  Prove the
+following two statements using induction.
 
-\paragraph{Answer}
-\todo{}
+\begin{enumerate}
+    \item The number of edges in a complete graph on $n$ vertices is
+        $\frac{n(n-1)}{2}$. % Section 5.3, Problem 31
+
+        \paragraph{Answer}
+        \todo{}
+
+    \item Suppose that $c_0,c_1,c_2,\ldots$ is the sequence defined as follows:
+        $c_0=2$, $c_1=2$,and, for every $k \geq 2$, $c_k:=c_{k-1}+3\cdot c_{k-2}$.
+        Prove that $c_n$ is even for each integer $n \geq 0$.
+
+        \paragraph{Answer}
+        \todo{}
+
+\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \collab{\todo{}}
 \nextprob{Recursion (2 points)}
 
-\todo{write question}
+(Section 5.6, Exercise 40). A set of blocks contains blocks of heights $1$, $2$,
+and $4$ centimeters.  Imagine constructing towers by piling blocks of different
+heights directly on top of one another. (A tower of height $6$ cm could be
+obtained using six $1$-cm blocks; three $2$-cm blocks; one $2$-cm block on the
+bottom with one $4$-cm block on top; one $4$-cm block on bottom with one $2$-cm
+block on top, and so forth.) Let $t_n$  be the number of ways to construct a
+tower of height $n$ cm using blocks from the set. (Assume an unlimited supply of
+blocks of each size.) Find a recurrence relation for $t_1, t_2, t_3, \ldots $.
+Justify your answer.
 
 \paragraph{Answer}
 \todo{}
@@ -114,9 +138,24 @@ This homework is worth $7$ points.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \collab{\todo{}}
-\nextprob{Second Order Recurrence Relations (1 point)}
+\nextprob{More Recurrence Relations (1 point)}
 
-\todo{write question}
+Find the closed form of the following recurrence relations:
 
-\paragraph{Answer}
-\todo{}
+\begin{enumerate}
+    \item $T(n) = T(n-1) + 5$, with $T(0)=1$.
+        \paragraph{Answer}
+        \todo{}
+
+    \item $T(n) = 2 T(n-1) + n$, with $T(0)=1$.
+        \paragraph{Answer}
+        \todo{}
+
+    \item $T(n) = 2 T(n-1) + 3^n$, with $T(0)=1$.
+        \paragraph{Answer}
+        \todo{}
+
+    \item (Bonus) What is the asymptotic form of the closed forms above?
+        \paragraph{Answer}
+        \todo{}
+\end{enumerate}

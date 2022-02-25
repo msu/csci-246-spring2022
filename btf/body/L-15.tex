@@ -1,3 +1,170 @@
 \section*{Lecture 15: Proof by Induction (\textsection 5.2)}
 
-\todo{lecture notes here}
+This is a general purpose proof technique that works in a bottom-up fashion.
+Knowing that a statement is true for a collection of instances, we argue that it
+is also true for a new instance, which we then add to the collection.  Repeating
+this step, we establish the statement for a countable collection.
+
+We start with a familiar problem: summing the first $n$ positive integers.
+%
+\begin{lemma}
+    For all $n \geq 0$, we have $\sum_{i=0}^n i = \frac{n(n+1)}{2}$.
+\end{lemma}
+\begin{proof}
+    We proceed by induction.
+    First, we note that $\sum_{i=0}^0 i = 0= \frac{0\cdot 1}{2}$.
+    Let $n\geq 0$.
+    Now, we assume inductively that
+    \begin{eqnarray*}
+        \sum_{i=0}^{n} i  &=&  \frac{n(n+1)}{2}.
+    \end{eqnarray*}
+    We now want to show that $\sum_{i=0}^{n+1} i  =  \frac{(n+1)(n+2)}{2}$.
+    We have:
+    \begin{align*}
+        \sum_{i=0}^{n+1} i
+            &=  \left(\sum_{i=0}^{n} i \right) + \left(\sum_{i=n+1}^{n+1} i \right)
+            && \\%\text{by the properties of summations}\\
+            &= \left(\sum_{i=0}^{n} i \right) + (n+1)
+            && \\%\text{by expanding the sum}\\
+            &= \frac{n(n+1)}{2} + (n+1)
+            && \\%\text{by the inductive assumption}\\
+            &= \frac{n(n+1)}{2} + \frac{2(n+1)}{2}
+            && \\%\text{by multiplying by one}\\
+            &= \frac{(n+1)(n+2)}{2}
+            && \\%\text{by adding fractions,}
+    \end{align*}
+    as was to be shown. (Note: can you explain the steps above?)  Therefore, we conclude
+    that, for all $n \geq 0$, we have $\sum_{i=0}^n i = \frac{n(n+1)}{2}$.
+\end{proof}
+
+To analyze why this proof is correct,
+we let $p(k)$ be the statement that the claim is true for $n=k$.
+Then, for $n \geq 0$, we assume $p(n) \implies p(n+1)$.
+For $n=0$ we have $p(0) \wedge [p(0) \Rightarrow p(1)]$.
+Hence, we get $p(1)$ by Modus Ponens.
+We can see that this continues:
+\begin{eqnarray*}
+  p(0) \wedge [p(0)     \Rightarrow p(1)]  &\text{ hence }&  p(1); \\
+  p(1) \wedge [p(1)     \Rightarrow p(2)]  &\text{ hence }&  p(2); \\
+   \ldots &\ldots& \ldots \\
+  p(n-1) \wedge [p(n-1) \Rightarrow p(n)]  &\text{ hence }&  p(n); \\
+   \ldots &\ldots& \ldots
+\end{eqnarray*}
+Thus, $p(n_0)$ and $p(n) \Rightarrow p(n+1)$ for all $n \geq n_0$
+implies $p(n)$ for all $n \geq n_0$.
+
+We formalize the proof technique into the first, weak form of
+the principle.
+The vast majority of applications of Mathematical Induction
+use this particular form.
+
+\begin{definition}[Mathematical Induction (Weak Form)]
+    If the statement $p(n_0)$ is true, and the
+    statement $p(n) \Rightarrow p(n+1)$ is true for all $n \geq n_0$,
+    then $p(n)$ is true for all integers $n \geq n_0$.
+\end{definition}
+
+To write a proof using the weak form of Mathematical Induction,
+we thus take the following five steps:
+it should have the following components:
+\begin{enumerate}
+    \item Introduce the proof.
+    \item Base Case:            $p(n_0)$ is true.
+    \item Inductive Hypothesis: Let $n \geq n_0$. Assume $p(n)$ is true.
+    \item Inductive Step:       Prove $p(n+1)$.
+    \item Inductive Conclusion: $p(n)$ for all $n \geq n_0$.
+\end{enumerate}
+Very often but not always, the inductive step is the most
+difficult part of the proof.
+In practice, we usually sketch the inductive proof,
+only spelling out the portions that are not obvious.
+
+If we can guess the closed form expression for a finite sum,
+it is often easy to use induction to prove that it is correct,
+if it is.
+
+\begin{lemma}
+    For all integers $n \geq 1$, we have $\sum_{i=1}^n 2^{i-1} = 2^n-1$.
+\end{lemma}
+\begin{proof}
+    We prove the claim by the weak form of the
+    Principle of Mathematical Induction.
+    We observe that the equality holds when $n=1$
+    because $\sum_{i=1}^1 2^{i-1} = 1 = 2^1-1$.
+    Let $n \geq 1$.
+    Assume inductively that the claim holds for $n$.
+    \practice
+
+    Thus, by the Principle of Mathematical Induction,
+    $\sum_{i=1}^n 2^{i-1} = 2^n -1$ for all $n \geq 1$.
+\end{proof}
+
+Sometimes it is not enough to use the validity of $p(n-1)$ to derive $p(n)$.
+Indeed, we have $p(n-2)$ available and $p(n-3)$ and so on.
+Why not use them?
+\begin{definition}{Mathematical Induction (Strong Form)}
+    If the statement $p(n_0)$ is true and the statement
+    $p(n_0) \wedge p(n_0+1) \wedge \cdots \wedge p(n) \Rightarrow p(n+1)$
+    is true for all $n \geq n_0$,
+    then $p(n)$ is true for all integers $n \geq n_0$.
+\end{definition}
+Notice that the strong form of the Principle of Mathematical Induction
+implies the weak form.
+
+\pagebreak
+\begin{lemma}[Prime Factor Decomposition]
+    Every integer $n \geq 2$ is the product of prime numbers.
+\end{lemma}
+\begin{proof}
+    We prove the claim by the strong form of the
+    Principle of Mathematical Induction.
+    We know that $2$ is a prime number and thus also a product of prime numbers.
+    Let $n \geq 2$.
+    Suppose now that we know that every positive number up to (and including) $n$ is
+    a product of prime numbers.
+    \practice
+
+    Therefore, by the strong form of the Principle of Mathematical Induction,
+    every integer $n \geq 2$ is a product of prime numbers.
+\end{proof}
+
+\paragraph{Unique Prime Factor Decomposition}
+We have used an even stronger statement before, namely that the
+decomposition into prime factors is unique.
+We can use the Reduction to Absurdity (proof by contradiction)
+to prove uniqueness.
+Suppose~$n$ is the smallest positive integer that has two
+different decompositions.
+Let $a \geq 2$ be the smallest prime factor in the two decompositions.
+It does not belong to the other decomposition, else we could
+cancel the two occurrences of $a$ and get a smaller integer
+with two different decompositions.
+Clearly, $n \bmod a = 0$.
+Furthermore, for each
+prime factor $p_i$ in the other decomposition of $n$,
+$r_i := p_i \bmod a \neq 0$ .
+We have
+\begin{eqnarray*}
+  n \bmod a  &=&  \left( \prod_i p_i \right) \bmod a             \\
+             &=&  \left( \prod_i r_i \right) \bmod a.
+\end{eqnarray*}
+Since all the $r_i$ are smaller than $a$ and $a$ is a prime number,
+the latter product can only be zero if one or the $r_i$ is zero.
+But this contradicts that all the $b_i$ are prime numbers larger
+than $a$.
+We thus conclude that every integer larger than one has
+a unique decomposition into prime factors.
+
+\paragraph{Exercises}
+Try to prove the following in your own time!
+\begin{enumerate}
+    \item For all $n \geq 0$, we have $\sum_{i=0}^n i = {n+1 \choose 2}$.
+        Here, note that ${n+1 \choose 2} = \frac{n (n+1)}{2}$. (Weak Form).
+    \item A tree with $n$ vertices has $n-1$ edges. (Strong Form).
+\end{enumerate}
+
+\paragraph{Summary.}
+Mathematical Induction is a tool to prove that a property is true
+for all positive integers.
+We used Modus Ponens to prove the weak as well as the strong form
+of the Principle of Mathematical Induction.

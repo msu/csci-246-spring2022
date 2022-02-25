@@ -43,13 +43,15 @@ Then, for $n \geq 0$, we assume $p(n) \implies p(n+1)$.
 For $n=0$ we have $p(0) \wedge [p(0) \Rightarrow p(1)]$.
 Hence, we get $p(1)$ by Modus Ponens.
 We can see that this continues:
-\begin{eqnarray*}
-  p(0) \wedge [p(0)     \Rightarrow p(1)]  &\text{ hence }&  p(1); \\
-  p(1) \wedge [p(1)     \Rightarrow p(2)]  &\text{ hence }&  p(2); \\
-   \ldots &\ldots& \ldots \\
-  p(n-1) \wedge [p(n-1) \Rightarrow p(n)]  &\text{ hence }&  p(n); \\
-   \ldots &\ldots& \ldots
-\end{eqnarray*}
+\practice
+% \begin{eqnarray*}
+%   p(0) \wedge [p(0)     \Rightarrow p(1)]  &\text{ hence }&  p(1); \\
+%   p(1) \wedge [p(1)     \Rightarrow p(2)]  &\text{ hence }&  p(2); \\
+%    \ldots &\ldots& \ldots \\
+%   p(n-1) \wedge [p(n-1) \Rightarrow p(n)]  &\text{ hence }&  p(n); \\
+%    \ldots &\ldots& \ldots
+% \end{eqnarray*}
+
 Thus, $p(n_0)$ and $p(n) \Rightarrow p(n+1)$ for all $n \geq n_0$
 implies $p(n)$ for all $n \geq n_0$.
 
@@ -69,10 +71,10 @@ we thus take the following five steps:
 it should have the following components:
 \begin{enumerate}
     \item Introduce the proof.
-    \item Base Case:            $p(n_0)$ is true.
-    \item Inductive Hypothesis: Let $n \geq n_0$. Assume $p(n)$ is true.
-    \item Inductive Step:       Prove $p(n+1)$.
-    \item Inductive Conclusion: $p(n)$ for all $n \geq n_0$.
+    \item Base Case:            % $p(n_0)$ is true.
+    \item Inductive Hypothesis: % Let $n \geq n_0$. Assume $p(n)$ is true.
+    \item Inductive Step:       % Prove $p(n+1)$.
+    \item Inductive Conclusion: % $p(n)$ for all $n \geq n_0$.
 \end{enumerate}
 Very often but not always, the inductive step is the most
 difficult part of the proof.

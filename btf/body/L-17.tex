@@ -5,7 +5,7 @@ method, you might be able to \emph{guess} what the solution is, then prove it to
 be true using ... you guessed it ... induction!  But, first, how do you come up
 with an educated guess?
 
-\paragraph{Method 1: Iteration} Here, we start with small values of $n$ and work
+\paragraph{Method 1: Bottom-up} Here, we start with small values of $n$ and work
 our way up until a pattern emerges. Let's try.
 
 What is the closed form of the following recurrence relation?
@@ -37,11 +37,11 @@ need to use induction.
 use the recursion tree to see if we can find a pattern.  Let's try.
 
 $$
-    c_n = c_{n/2} + 1, \text{ where } c_1=1.
+    c_n = 2 c_{n/2} + 1, \text{ where } c_1=1.
 $$
 For now, let's pretend $n$ is a power of two.
 \practice \vspace{1in}
-% ... c_n = nlog(n)+n
+% ... c_n = 2n-1
 
 Again, now, we have used the recursion tree to find
 a guess for what the solution is ... to really prove it, we
@@ -68,6 +68,7 @@ relations?}
     \item $d_n=d_{n-1}+2$, where $d_0=1$  % d_n=2^n-1
     \item $e_n = 1.1\cdot e_{n-1}$, where $e_0=1$. % e_n = (1.1)^n
     \item $f_n = r\cdot f_{n-1}$, where $f_0=a$, $r \geq 0$, and $a \in \R_+$. % f_n = a r^n
+    \item $g_n = 2 g_{n/2} + n$, where $g_1=1$ % g_n = n log n + n
 \end{enumerate}
 
 \pagebreak

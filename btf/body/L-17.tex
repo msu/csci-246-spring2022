@@ -1,3 +1,114 @@
-\section*{Lecture 17: Second Order Recurrence Relations (\textsection 5.8)}
+\section*{Lecture 17: Solving Recurrence Relations (\textsection 5.7--5.9)}
 
-\todo{add lecture notes}
+Sometimes you have a hunch.  In this first
+method, you might be able to \emph{guess} what the solution is, then prove it to
+be true using ... you guessed it ... induction!  But, first, how do you come up
+with an educated guess?
+
+\paragraph{Method 1: Iteration} Here, we start with small values of $n$ and work
+our way up until a pattern emerges. Let's try.
+
+What is the closed form of the following recurrence relation?
+(Note: this is the recurrence relation for the Towers of Hanoi!)
+$$
+    a_n = 2 a_{n-1} + 1, \text{ where } a_1=1.
+$$
+Now, let's work it out for small values of $n$ and see if we find a pattern.
+\practice
+% ... solution: a_n= 2^n-1.
+
+Now that we've found that pattern, you should be able to use induction to prove
+that it is correct!
+
+\paragraph{Method 2: Plug and Chug} In this solution, you iteratively
+\emph{plug} in the formula on the RHS then \emph{chug} away (usually using basic
+algebra) to get the formula in a ``nice'' form.  Let's try.
+
+$$
+    b_n = b_{n-1} + 1, \text{ where } b_0=1.
+$$
+\practice
+% ... solution: b_n = n-1
+But, now, we have a guess for what the solution is ... to really prove it, we
+need to use induction.
+
+\pagebreak
+\paragraph{Method 3: Recursion Tree} Now, we get a little visual.  Sometimes we
+use the recursion tree to see if we can find a pattern.  Let's try.
+
+$$
+    c_n = c_{n/2} + 1, \text{ where } c_1=1.
+$$
+For now, let's pretend $n$ is a power of two.
+\practice \vspace{1in}
+% ... c_n = nlog(n)+n
+
+Again, now, we have used the recursion tree to find
+a guess for what the solution is ... to really prove it, we
+need to use induction.
+
+\paragraph{Asymptotic Forms}
+In an earlier lecture, you learned about asymptotics (big-O, big-Omega, and
+Theta notations).  What are the asmyptotic forms of the recurrrence relations
+above?
+
+\begin{itemize}
+    \item $a_n$ is
+    \item $b_n$ is
+    \item $c_n$ is
+\end{itemize}
+
+We conclude with a few more examples.  Even if these are not covered in class,
+try them at home for practice!
+
+\input{body/prac-directions}
+{\bf What are the closed forms and asymptotic forms of the following recurrence
+relations?}
+\begin{enumerate}
+    \item $d_n=d_{n-1}+2$, where $d_0=1$  % d_n=2^n-1
+    \item $e_n = 1.1\cdot e_{n-1}$, where $e_0=1$. % e_n = (1.1)^n
+    \item $f_n = r\cdot f_{n-1}$, where $f_0=a$, $r \geq 0$, and $a \in \R_+$. % f_n = a r^n
+\end{enumerate}
+
+\pagebreak
+
+The following will not be on the quiz, but is good to know exists.
+
+\paragraph{Master Method}
+In a recurrence relation, we distinguish between
+the \emph{homogeneous} part, the recursive terms,
+and the \emph{inhomogeneous} part, the work that occurs.
+The solution of depends on the relative size of the two,
+exhibiting qualitatively different behavior if one dominates
+the other or the two are in balance.
+Recurrence relations that exhibit this three-regime behavior are so
+common that it seems worthwhile to study this behavior in more detail.
+We summarize the findings for how to obtain asymptotic forms.
+\begin{theorem}{Master Theorem.}
+    Let $a \geq 1$, $b > 1$, and $d > 0$ be real numbers,
+    and let $f \colon \R \to \R$ be a function.
+    Let~$T(n)$ be defined by the following recurrence relation:
+    \begin{eqnarray*}
+        T(n)  &=&  \left\{ \begin{array}{ccc}
+            a T(\frac{n}{b}) + f(n)  &  \mbox{\rm if}  &   n > 1  \\
+                    d                       &  \mbox{\rm if}  &   n = 1 .
+        \end{array} \right.
+    \end{eqnarray*}
+    Then, we have the following:
+    \begin{itemize}
+        \item CASE 1: If $f(n)=O(n^{\log_b a - \epsilon})$ for some $\epsilon>0$,
+            then $T(n) = \Theta (n^{\log_b a})$;
+        \item CASE 2: If $f(n)=\Theta(n^{\log_b a})$, then $T(n) = \Theta (n^{\log_b a} \log n)$;
+        \item CASE 3:  If $f(n)=\Omega(n^{\log_b a + \epsilon})$ for some $\epsilon>0$
+            and if there exists $c>0$ such
+            that~$af(n/b) \leq cf(n)$ for all large~$n$,
+            then $T(n) = \Theta ( f(n) )$.
+    \end{itemize}
+\end{theorem}
+
+Note: when $\frac{n}{b}$ is not an integer, we round using either the floor or
+the ceiling function.
+
+The recurrence relations for merge sort and for binary search satisfy this
+pattern!  Which case do they fall into?
+\practice
